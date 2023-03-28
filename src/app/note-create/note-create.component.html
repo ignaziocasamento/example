@@ -1,0 +1,36 @@
+<div class="container">
+  <form (ngSubmit)="onSubmit()">
+    <div>
+      <input
+        placeholder="Titolo"
+        type="text"
+        id="title"
+        [(ngModel)]="note.title"
+        name="title"
+      />
+    </div>
+    <div>
+      <textarea
+        id="content"
+        [(ngModel)]="note.content"
+        name="content"
+        placeholder="Inizia a digitare.."
+      ></textarea>
+    </div>
+    <div>
+      <label class="priority" for="priority"
+        >Priorità: 1 minima, 5 massima</label
+      >
+      <input
+        type="text"
+        id="priority"
+        [(ngModel)]="note.priority"
+        name="priority"
+        required
+        maxlength="1"
+        (keypress)="validatePriority($event)"
+      />
+    </div>
+    <button type="submit">Crea nota</button>
+  </form>
+</div>

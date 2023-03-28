@@ -1,0 +1,17 @@
+<div *ngIf="notes.length > 0">
+  <h2>Statistics</h2>
+  <p>Number of notes: {{ numNotes }}</p>
+  <p>Average priority: {{ priorityAvg }}</p>
+  <h3>Notes by month</h3>
+  <div *ngFor="let item of notesByMonth">
+    <h3>Mese di riferimento : {{item.month + 1}} / {{ thisYear }}</h3>
+    <h4>Numero di note nel mese corrente: {{item.numNotes}}</h4>
+  </div>
+</div>
+
+<ng-container *ngIf="notes.length == 0">
+  <div class="empty-notes">
+    <span class="material-symbols-outlined"> sentiment_dissatisfied </span>
+    <h3>Non sono presenti statistiche.</h3>
+  </div>
+</ng-container>

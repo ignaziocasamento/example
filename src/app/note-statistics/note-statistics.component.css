@@ -1,0 +1,19 @@
+h3 {
+    font-size: .7rem;
+    margin: 0 0 1rem;
+}
+
+.empty-notes {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.empty-notes span,
+.empty-notes h3 {
+    margin: 10px;
+}

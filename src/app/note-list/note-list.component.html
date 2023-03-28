@@ -1,0 +1,44 @@
+<ng-container *ngIf="notes.length > 0">
+  <div class="search-bar">
+    <input
+      type="text"
+      [(ngModel)]="searchTerm"
+      placeholder="Cerca tra le note..."
+      (input)="search()"
+    />
+  </div>
+  <div class="sort-bar">
+    <h3>Filtra per:</h3>
+    <div class="buttons">
+      <p (click)="sortByTitle()">Titolo</p>
+      <p (click)="sortByCreatedAt()">Data creazione</p>
+      <p (click)="sortByPriority()">Priorità</p>
+    </div>
+  </div>
+  <ul>
+    <li *ngFor="let note of filteredNotes">
+      <h3>{{ note.title }}</h3>
+      <p>{{ note.content }}</p>
+      <p class="data">{{note.createdAt | date}}</p>
+      <div class="icon-container">
+        <div class="badge" [ngStyle]="{'backgroundColor': getColor(note.priority)}"></div>
+        <span (click)="shareNote(note)" class="material-symbols-outlined">
+          send_to_mobile
+        </span>
+        <span (click)="editNote(note.id)" class="material-symbols-outlined">
+          edit
+        </span>
+        <span (click)="deleteNote(note.id)" class="material-symbols-outlined">
+          delete
+        </span>
+      </div>
+    </li>
+  </ul>
+</ng-container>
+
+<ng-container *ngIf="notes.length == 0">
+  <div class="empty-notes">
+    <span class="material-symbols-outlined"> sentiment_dissatisfied </span>
+    <h3>Non sono presenti note da visualizzare.</h3>
+  </div>
+</ng-container>
