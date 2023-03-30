@@ -18,18 +18,14 @@
       ></textarea>
     </div>
     <div>
-      <label class="priority" for="priority"
-        >Priorità: 1 minima, 5 massima</label
-      >
-      <input
-        type="text"
-        id="priority"
-        [(ngModel)]="note.priority"
-        name="priority"
-        required
-        maxlength="1"
-        (keypress)="validatePriority($event)"
-      />
+      <label class="priority" for="priority">Priorità: 1 minima, 5 massima</label>
+      <select id="priority" [(ngModel)]="note.priority" name="priority" required>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+      </select>
     </div>
     <button type="submit">Salva le modifiche</button>
   </form>
