@@ -16,12 +16,68 @@ nav {
     font-size: 1rem;
     font-weight: 300;
     z-index: 1;
-    max-height: 50px;
+    height: 250px;
     background-color: #232323;
     position: absolute;
     width: 100%;
-    top: 0;
+    top: -2000px;
+    flex-direction: column;
+    z-index: 1;
 }
+
+.navigation-bar {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 10px;
+    color: white;
+    font-size: 1rem;
+    font-weight: 300;
+    z-index: 1;
+    height: 50px;
+    background-color: #232323;
+    width: 100%;
+}
+
+.navigation-bar img {
+    z-index: 10;
+}
+
+.setVisible {
+    top: 0;
+    transition: 500ms;
+    z-index: 1;
+}
+
+.setInvisible {
+    top: -1000px;
+    transition: 500ms;
+}
+
 nav span {
     cursor: pointer;
+}
+
+.button-position {
+    position: absolute;
+    right: 10px;
+}
+
+.button-left {
+    position: absolute;
+    left: 10px;
+}
+
+.logo {
+    height: 35px;
+    width: 35px;
+    position: absolute;
+    left: 10px;
+}
+
+.version {
+    position: absolute;
+    bottom: 10px;
+    right: 15px;
+    font-size: 0.5rem;
 }

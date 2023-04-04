@@ -1,8 +1,41 @@
-<div class="container">
-  <nav>
-    <span routerLink="/notes" class="material-icons">list_alt</span>
-    <span routerLink="/stats" class="material-symbols-outlined">chart_data</span>
-    <span routerLink="/create" class="material-icons" >add</span>
-  </nav>
-  <router-outlet></router-outlet>
+<nav [ngClass]="{ setVisible: showMenu, setInvisible: !showMenu}">
+  <span
+    routerLink="/notes"
+    (click)="showMenu = !showMenu"
+    class="material-icons"
+    >list_alt</span
+  >
+  <span
+    routerLink="/stats"
+    (click)="showMenu = !showMenu"
+    class="material-symbols-outlined"
+    >chart_data</span
+  >
+  <span
+    routerLink="/create"
+    (click)="showMenu = !showMenu"
+    class="material-icons"
+    >add</span
+  >
+  <p class="version">v0.1.2</p>
+</nav>
+<div class="navigation-bar">
+  <img
+    class="button-left"
+    routerLink=""
+    src="https://img.icons8.com/material-rounded/18/ffffff/home-page.png"
+  />
+  <img
+    class="button-position"
+    (click)="showMenu = !showMenu"
+    *ngIf="!showMenu"
+    src="https://img.icons8.com/ios-glyphs/18/ffffff/menu-rounded.png"
+  />
+  <img
+    class="button-position"
+    (click)="showMenu = !showMenu"
+    *ngIf="showMenu"
+    src="https://img.icons8.com/ios-filled/18/ffffff/delete-sign--v1.png"
+  />
 </div>
+<router-outlet></router-outlet>

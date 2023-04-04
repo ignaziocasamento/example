@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Note } from '../models/notes';
 import { NoteService } from '../note.service';
+import { AppService } from '../app.service';
 
 @Component({
   selector: 'app-note-statistics',
@@ -18,7 +19,7 @@ export class NoteStatisticsComponent implements OnInit {
   }];
   thisYear = new Date().getFullYear();
 
-  constructor(private noteService: NoteService) {}
+  constructor(private noteService: NoteService, private appService: AppService) {}
 
   ngOnInit(): void {
     this.noteService.getNotes().subscribe((notes) => {

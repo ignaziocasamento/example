@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Note } from '../models/notes';
 import { NoteService } from '../note.service';
+import { AppService } from '../app.service';
 
 @Component({
   selector: 'app-note-edit',
@@ -22,7 +23,8 @@ export class NoteEditComponent implements OnInit {
   constructor(
     private noteService: NoteService,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private appService: AppService
   ) { }
 
   ngOnInit(): void {

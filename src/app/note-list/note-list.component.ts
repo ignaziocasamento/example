@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Note } from '../models/notes';
 import { NoteService } from '../note.service';
+import { AppService } from '../app.service';
 
 @Component({
   selector: 'app-note-list',
@@ -14,7 +15,7 @@ export class NoteListComponent implements OnInit {
   searchTerm: string = '';
   sortOrder: 'title' | 'createdAt' | 'priority' = 'createdAt';
 
-  constructor(private noteService: NoteService, private router: Router) {
+  constructor(private noteService: NoteService, private router: Router, private appService: AppService) {
     // this.noteService.notes$.subscribe(notes => this.notes = notes);
   }
 

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Route, Router } from '@angular/router';
 import { Note } from '../models/notes';
 import { NoteService } from '../note.service';
+import { AppService } from '../app.service';
 
 @Component({
   selector: 'app-note-create',
@@ -18,9 +19,10 @@ export class NoteCreateComponent implements OnInit {
     createdAt: new Date(),
   };
 
-  constructor(private noteService: NoteService, private router: Router) {}
+  constructor(private noteService: NoteService, private router: Router, private appService: AppService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+  }
 
   onSubmit(): void {
     this.noteService.getNotes()
