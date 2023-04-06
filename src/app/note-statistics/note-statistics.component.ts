@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Note } from '../models/notes';
 import { NoteService } from '../note.service';
 import { AppService } from '../app.service';
+import { ChartData } from 'chart.js';
 
 @Component({
   selector: 'app-note-statistics',
@@ -11,34 +12,31 @@ import { AppService } from '../app.service';
 export class NoteStatisticsComponent implements OnInit {
   notes: Note[] = [];
   numNotes = 0;
-  prioritySum = 0;
   priorityAvg = 0;
-  notesByMonth: { month: string; numNotes: number }[] = [{
-    month: '',
-    numNotes: 0,
-  }];
-  thisYear = new Date().getFullYear();
-
+  datasets!: ChartData <'bar', {key: string, value: number} []>;
   constructor(private noteService: NoteService, private appService: AppService) {}
 
   ngOnInit(): void {
     this.noteService.getNotes().subscribe((notes) => {
       this.notes = notes;
       this.numNotes = this.notes.length;
-      this.prioritySum = this.notes.reduce(
-        (sum, note) => sum + note.priority,
-        0
-      );
-      this.priorityAvg = this.prioritySum / this.numNotes;
-      const notesByMonthMap = new Map();
-      this.notes.forEach((note) => {
-        const month = note.createdAt.getMonth();
-        const numNotes = notesByMonthMap.get(month) || 0;
-        notesByMonthMap.set(month, numNotes + 1);
-      });
-      this.notesByMonth = Array.from(notesByMonthMap.entries()).map(
-        ([month, numNotes]) => ({ month, numNotes })
-      );
+      let count = 0;
+      notes.forEach((note) => {
+        count += +note.priority;
+      })
+      this.priorityAvg = count / this.numNotes;
+      this.datasets = {
+        datasets: [{
+          data: [{key: 'Numero totale delle note', value: this.numNotes}, {key: 'Priorità media', value: this.priorityAvg}],
+          parsing: {
+            xAxisKey: 'key',
+            yAxisKey: 'value'
+          },
+          label: 'Tutte le note',
+          backgroundColor: '#454545'
+        }],
+      };
+      
     });
   }
 }

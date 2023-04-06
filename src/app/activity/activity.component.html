@@ -1,0 +1,10 @@
+<div class="container">
+    <p *ngIf="activityTime > 9">{{activityTime}}</p>
+    <p *ngIf="activityTime <= 9">0{{activityTime}}</p>
+    
+    <p *ngIf="activitySecond > 9">{{activitySecond}}</p>
+    <p *ngIf="activitySecond <= 9">0{{activitySecond}}</p>
+    
+    <button type="button" [disabled]="clickedTimer || (activityTime === 0 && activitySecond === 0)" class="button" (click)="startTime()">Avvia il tempo</button>
+    <button type="button" [disabled]="!clickedTimer" class="button" (click)="stopTime()">Ferma il tempo</button>
+</div>

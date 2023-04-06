@@ -31,7 +31,7 @@ export class NoteListComponent implements OnInit {
   }
 
   deleteNote(id: number) {
-    if (confirm('Are you sure you want to delete this note?')) {
+    if (confirm('Vuoi davvero eliminare questa nota?')) {
       this.noteService.deleteNoteById(Number(id));
     }
   }

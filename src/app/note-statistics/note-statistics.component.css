@@ -17,3 +17,11 @@ h3 {
 .empty-notes h3 {
     margin: 10px;
 }
+
+.stats {
+    margin: 0 auto;
+    text-align: center;
+    font-size: 0.7rem;
+    font-weight: 500;
+    padding: 20px;
+}
