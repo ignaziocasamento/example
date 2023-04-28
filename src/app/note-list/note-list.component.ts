@@ -20,11 +20,10 @@ export class NoteListComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.noteService.notes$.subscribe((notes) => {
-      this.notes = notes;
-      this.filteredNotes = notes;
-    });
-  }
+    const notes = JSON.parse(localStorage.getItem('notes') || '[]');
+    this.notes = notes;
+    this.filteredNotes = notes;
+  }  
 
   editNote(id: number) {
     this.router.navigateByUrl(`/edit/${id}`); // Naviga verso note-edit passando l'ID della nota
@@ -33,8 +32,12 @@ export class NoteListComponent implements OnInit {
   deleteNote(id: number) {
     if (confirm('Vuoi davvero eliminare questa nota?')) {
       this.noteService.deleteNoteById(Number(id));
+      this.notes = this.notes.filter(note => note.id !== id);
+      this.filteredNotes = this.filteredNotes.filter(note => note.id !== id);
+      localStorage.setItem('notes', JSON.stringify(this.notes));
     }
   }
+  
 
   search() {
     this.filteredNotes = this.notes.filter(

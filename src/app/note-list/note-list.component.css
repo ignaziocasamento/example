@@ -128,7 +128,7 @@ input[type="number"]:focus {
   align-items: center;
   flex-direction: row;
 }
-.buttons p {
+.buttons button {
   font-size: 0.7rem;
   margin: 5px 10px;
 }
@@ -144,4 +144,8 @@ input[type="number"]:focus {
   align-items: center;
   position: relative;
   margin: 0 auto;
+}
+button {
+  border: none;
+  background: none;
 }

@@ -10,12 +10,17 @@ export class NoteService {
 
   addNote(note: Note): void {
     this.notes.push({...note}); // crea una nuova istanza di note e la aggiunge all'array di note
+    localStorage.setItem('notes', JSON.stringify(this.notes)); // salva il nuovo array di note nel localStorage
     this.notesSubject.next(this.notes); // emette il nuovo array di note
   }
+  
 
   getNotes(): Observable<Note[]> {
-    return of(this.notes);
+    const notes = JSON.parse(localStorage.getItem('notes') || '[]');
+    this.notes = notes;
+    return of(notes);
   }
+  
 
   getNoteById(id: number): Observable<Note | undefined> {
     const note = this.notes.find(n => n.id === id);
