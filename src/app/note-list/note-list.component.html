@@ -1,12 +1,4 @@
 <ng-container *ngIf="notes.length > 0">
-  <div class="search-bar">
-    <input
-      type="text"
-      [(ngModel)]="searchTerm"
-      placeholder="Cerca tra le note..."
-      (input)="search()"
-    />
-  </div>
   <div class="sort-bar">
     <h3>Filtra per:</h3>
     <div class="buttons">
@@ -33,6 +25,17 @@
         </span>
       </div>
     </li>
+    <div routerLink="/create" class="button-large">
+      Aggiungi una nota
+    </div>
+    <div class="search-bar">
+      <input
+        type="text"
+        [(ngModel)]="searchTerm"
+        placeholder="Cerca tra le note..."
+        (input)="search()"
+      />
+    </div>
   </ul>
 </ng-container>
 
@@ -40,5 +43,8 @@
   <div class="empty-notes">
     <span class="material-symbols-outlined"> sentiment_dissatisfied </span>
     <h3>Non sono presenti note da visualizzare.</h3>
+    <div routerLink="/create" class="button-large">
+      Crea una nota
+    </div>
   </div>
 </ng-container>

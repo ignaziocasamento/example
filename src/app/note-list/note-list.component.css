@@ -9,7 +9,7 @@ ul {
   padding: 0;
   position: absolute;
   width: 100%;
-  top: 150px;
+  top: 125px;
 }
 
 li {
@@ -88,11 +88,11 @@ p {
 input[type="text"],
 input[type="number"] {
   width: 80%;
-  padding: 10px;
+  padding: 9px;
   border: none;
   background-color: #f2f2f2;
   font-size: .7rem;
-  margin-top: 10px;
+  margin-top: 24px;
   resize: vertical;
 }
 
@@ -107,15 +107,15 @@ input[type="number"]:focus {
 .search-bar {
   display: flex;
   justify-content: center;
+  align-items: center;
   width: 100%;
   height: 30px;
-  position: absolute;
-  top: 50px;
+  margin: 0 auto;
 }
 
 .sort-bar {
   position: absolute;
-  top: 90px;
+  top: 65px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -131,4 +131,17 @@ input[type="number"]:focus {
 .buttons p {
   font-size: 0.7rem;
   margin: 5px 10px;
+}
+.button-large {
+  width: 72%;
+  height: 50px;
+  border: 1px solid #000;
+  padding: 10px;
+  margin: 5px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  margin: 0 auto;
 }

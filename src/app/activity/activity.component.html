@@ -1,10 +1,36 @@
 <div class="container">
-    <p *ngIf="activityTime > 9">{{activityTime}}</p>
-    <p *ngIf="activityTime <= 9">0{{activityTime}}</p>
-    
-    <p *ngIf="activitySecond > 9">{{activitySecond}}</p>
-    <p *ngIf="activitySecond <= 9">0{{activitySecond}}</p>
-    
-    <button type="button" [disabled]="clickedTimer || (activityTime === 0 && activitySecond === 0)" class="button" (click)="startTime()">Avvia il tempo</button>
-    <button type="button" [disabled]="!clickedTimer" class="button" (click)="stopTime()">Ferma il tempo</button>
+  <p *ngIf="activityTime > 9">{{ activityTime }}</p>
+  <p *ngIf="activityTime <= 9">0{{ activityTime }}</p>
+
+  <p *ngIf="activitySecond > 9">{{ activitySecond }}</p>
+  <p *ngIf="activitySecond <= 9">0{{ activitySecond }}</p>
+
+  <div class="button-section">
+    <button
+      type="button"
+      [disabled]="clickedTimer || (activityTime === 0 && activitySecond === 0)"
+      class="button"
+      (click)="startTime()"
+    >
+      <span class="material-symbols-outlined"> play_arrow </span>
+    </button>
+    <button
+      type="button"
+      [disabled]="!clickedTimer || (activityTime == 0 && activitySecond == 0)"
+      class="button"
+      (click)="stopTime()"
+    >
+      <span class="material-symbols-outlined"> pause </span>
+    </button>
+    <button
+      type="button"
+      [disabled]="!canClickReset"
+      class="button"
+      (click)="stopTimeAndGo()"
+    >
+      <span class="material-symbols-outlined"> stop </span>
+    </button>
+  </div>
+
+  <div (click)="goToBreak()" class="button large">Resetta e fai un break</div>
 </div>
