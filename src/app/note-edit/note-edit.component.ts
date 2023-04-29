@@ -40,22 +40,4 @@ export class NoteEditComponent implements OnInit {
     this.noteService.updateNoteById(this.note.id, this.note);
     this.router.navigateByUrl('/notes');
   }
-
-  validatePriority(event: any) {
-    const keyCode = event.keyCode;
-    const keyValue = event.key;
-
-    if (event.target.value.length > 0 && (keyValue < '1' || keyValue > '5')) {
-      event.preventDefault();
-    }
-
-    if (
-      keyCode !== 8 &&
-      (keyCode < 49 || keyCode > 53) &&
-      (keyCode < 97 || keyCode > 101)
-    ) {
-      event.preventDefault();
-    }
-  }
-
 }

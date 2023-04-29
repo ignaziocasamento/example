@@ -81,3 +81,14 @@ nav span {
     right: 15px;
     font-size: 0.5rem;
 }
+.icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+.icon img {
+    width: 50%;
+    margin: 0 auto;
+}

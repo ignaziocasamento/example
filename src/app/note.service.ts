@@ -32,6 +32,7 @@ export class NoteService {
     if (noteIndex !== -1) {
       this.notes[noteIndex] = updatedNote;
       this.notesSubject.next(this.notes);
+      localStorage.setItem('notes', JSON.stringify(this.notes));
     }
   }
 

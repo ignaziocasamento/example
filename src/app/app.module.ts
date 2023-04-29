@@ -11,6 +11,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { ActivityComponent } from './activity/activity.component';
 import { BreakComponent } from './break/break.component';
 import { NgChartsModule } from 'ng2-charts';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 
 @NgModule({
@@ -28,6 +29,7 @@ import { NgChartsModule } from 'ng2-charts';
     BrowserModule,
     FormsModule,
     NgChartsModule,
+    NgxSpinnerModule,
     RouterModule.forRoot([
       { path: '', component: DashboardComponent },
       { path: 'notes', component: NoteListComponent },
