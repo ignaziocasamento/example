@@ -1,4 +1,4 @@
-<nav *ngIf="!loading" [ngClass]="{ setVisible: showMenu, setInvisible: !showMenu}">
+<nav  [ngClass]="{ setVisible: showMenu, setInvisible: !showMenu}">
   <span
     routerLink="/notes"
     (click)="showMenu = !showMenu"
@@ -19,7 +19,7 @@
   >
   <p class="version">v0.3.6</p>
 </nav>
-<div *ngIf="!loading" class="navigation-bar">
+<div  class="navigation-bar">
   <img
     class="button-left"
     routerLink=""
@@ -38,7 +38,4 @@
     src="https://img.icons8.com/ios-filled/18/ffffff/delete-sign--v1.png"
   />
 </div>
-<router-outlet *ngIf="!loading"></router-outlet>
-<div *ngIf="loading" class="icon">
-  <img src="https://github.com/ignaziocasamento/example/blob/main/src/assets/_5a96c4d7-d345-4455-bb77-45dfa47d855c-removebg-preview.png" alt="">
-</div>
+<router-outlet ></router-outlet>

@@ -13,15 +13,8 @@ export class AppComponent implements OnInit, OnDestroy {
 
   showMenu = false;
   goBack = false;
-  loading = true;
 
-  ngOnInit(): void {
-    this.spinner.show();
-    setTimeout(() => {
-      this.loading = false;
-      this.spinner.hide();
-    }, 3000);
-  }
+  ngOnInit(): void {}
 
   ngOnDestroy(): void {
     this.goBack = true;
