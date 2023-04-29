@@ -1,6 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { AppService } from './app.service';
-import { NgxSpinnerService } from 'ngx-spinner/public_api';
 
 @Component({
   selector: 'app-root',
